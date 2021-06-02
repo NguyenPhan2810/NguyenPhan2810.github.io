@@ -22,6 +22,7 @@ let highestScore = 0;
 let initialLength = 29;
 let numberOfFoodsEaten = 0;
 let greatFoodSpawnRate = 4; // Number of foods eaten to spawn a greate food
+let greatFoodDecayTime = 4;
 const maxBoostSpeedMultiplier = 10;
 let boostSpeedMultiplier = 1;
 
@@ -173,20 +174,13 @@ class Snake extends GameObject
                 
             let mag = distance(thisTail, nextTail);
 
-            if (mag < 0.1)
+            if (mag < this.tailDistance)
                 continue;
 
             let dir = [(nextTail[0] - thisTail[0]) / mag, (nextTail[1] - thisTail[1]) / mag];
 
-            if (mag < this.tailDistance)
-            {
-                continue;
-            }
-            else
-            {
-                thisTail[0] = nextTail[0] - dir[0] * this.tailDistance * 2;
-                thisTail[1] = nextTail[1] - dir[1] * this.tailDistance * 2;
-            }
+            thisTail[0] = nextTail[0] - dir[0] * this.tailDistance;
+            thisTail[1] = nextTail[1] - dir[1] * this.tailDistance;
         }
     }
 
@@ -269,7 +263,7 @@ class GreatFood extends Food
         this.size = 40;
         this.value = 40;
         this.color = "yellow";
-        this.decayTime = 4;
+        this.decayTime = greatFoodDecayTime;
 
         new AnimationRing(this.position[0], this.position[1], this.size * 10, 1, this.color);
     }
@@ -383,7 +377,7 @@ function checkEndGame()
 
         if (dis < 1.5)
         {
-            player.RemoveTails(player.length - i);
+            //player.RemoveTails(player.length - i);
             gameOver = true;
             break;
         }
