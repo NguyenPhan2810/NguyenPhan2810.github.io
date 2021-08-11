@@ -403,9 +403,7 @@ function gameUpdate()
 {
     for (let i = 0; i < GameObject.AllGameObjects.length; ++i)
     {
-        let obj = GameObject.AllGameObjects[i];
-
-        obj.Update(elapsedSinceLastLoop);
+        GameObject.AllGameObjects[i].Update(elapsedSinceLastLoop);
     }
 
     if (totalElapsedTime > 3)
@@ -423,10 +421,8 @@ function gameDraw()
     // Draw objects
     for (let i = 0; i < GameObject.AllGameObjects.length; ++i)
     {
-        let obj = GameObject.AllGameObjects[i];
-
         ctx.beginPath();
-        obj.Draw();
+        GameObject.AllGameObjects[i].Draw();
         ctx.closePath();
     }
 }
