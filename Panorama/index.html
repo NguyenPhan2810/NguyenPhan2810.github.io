@@ -65,6 +65,7 @@
       }
       loadingCover.style.display = "";
 
+      var unityInstance;
       const script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
@@ -90,7 +91,6 @@
       document.body.appendChild(script);
     </script>
 
-    var unityInstance;
 
     <script type="module">
       // Import the functions you need from the SDKs you need
