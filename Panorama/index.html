@@ -91,10 +91,12 @@
       document.body.appendChild(script);
     </script>
 
+
     <script type="module">
       // Import the functions you need from the SDKs you need
       import * as firebase from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
+      import * as database from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
 
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
@@ -114,7 +116,7 @@
       // Initialize Firebase
       const app = firebase.initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
-      window.database = firebase.getDatabase(app);
+      window.database = database.getDatabase(app);
     </script>
   </body>
 </html>
