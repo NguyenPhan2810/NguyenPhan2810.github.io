@@ -73,15 +73,15 @@
           spinner.style.display = "none";
           progressBarEmpty.style.display = "";
           progressBarFull.style.width = `${100 * progress}%`;
-        }).then((unityInstance) => {
-          unityInstance = unityInstance;
+        }).then((gameInstance) => {
+          unityInstance = gameInstance;
           loadingCover.style.display = "none";
           if (canFullscreen) {
             if (!hideFullScreenButton) {
               fullscreenButton.style.display = "";
             }
             fullscreenButton.onclick = () => {
-              unityInstance.SetFullscreen(1);
+              gameInstance.SetFullscreen(1);
             };
           }
         }).catch((message) => {
@@ -90,7 +90,6 @@
       };
       document.body.appendChild(script);
     </script>
-
 
     <script type="module">
       // Import the functions you need from the SDKs you need
@@ -117,9 +116,8 @@
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
       // Get a reference to the database service
-      const firebase = getDatabase(app);
+      const database = getDatabase(app);
 
     </script>
-
   </body>
 </html>
