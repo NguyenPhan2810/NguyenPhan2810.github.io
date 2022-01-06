@@ -74,14 +74,14 @@
           progressBarEmpty.style.display = "";
           progressBarFull.style.width = `${100 * progress}%`;
         }).then((gameInstance) => {
-          unityInstance = gameInstance;
+          unityInstance = gameInstance
           loadingCover.style.display = "none";
           if (canFullscreen) {
             if (!hideFullScreenButton) {
               fullscreenButton.style.display = "";
             }
             fullscreenButton.onclick = () => {
-              gameInstance.SetFullscreen(1);
+              unityInstance.SetFullscreen(1);
             };
           }
         }).catch((message) => {
