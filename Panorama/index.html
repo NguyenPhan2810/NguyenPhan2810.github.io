@@ -44,8 +44,6 @@
       const fullscreenButton = document.querySelector("#unity-fullscreen-button");
       const spinner = document.querySelector('.spinner');
 
-      var unityInstance;
-
       const canFullscreen = (function() {
         for (const key of [
             'exitFullscreen',
@@ -84,7 +82,6 @@
               unityInstance.SetFullscreen(1);
             };
           }
-          unityInstance = unityInstance;
         }).catch((message) => {
           alert(message);
         });
